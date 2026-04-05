@@ -3,7 +3,7 @@
 
 A modern, responsive travel blog website designed to inspire global exploration, promote sustainable travel, and provide expert destination guides. Built as part of Class Task 3 using the Bootstrap 5 framework.
 
-**Live Demo:** [https://gilded-marzipan-ccda29.netlify.app/)
+**Live Demo:** [https://unrivaled-otter-b5e997.netlify.app/)
 
 ---
 

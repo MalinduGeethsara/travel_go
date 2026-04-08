@@ -62,7 +62,7 @@
         <h2 class="fw-bold mb-5 text-center text-dark">Why Travel With Us?</h2>
         <div class="row g-4 text-center">
             
-            <div class="col-md-4">
+            <div class="col-md-4 custom-card">
                 <div class="card bg-white border-0 shadow-sm rounded-4 h-100 p-4 hover-lift">
                     <i class="bi bi-map display-2 text-theme mb-3"></i>
                     <h4 class="fw-bold text-dark">Expert Guides</h4>
@@ -70,7 +70,7 @@
                 </div>
             </div>
             
-            <div class="col-md-4">
+            <div class="col-md-4 custom-card">
                 <div class="card bg-white border-0 shadow-sm rounded-4 h-100 p-4 hover-lift">
                     <i class="bi bi-globe-americas display-2 text-theme mb-3"></i>
                     <h4 class="fw-bold text-dark">Sustainable Travel</h4>
@@ -78,7 +78,7 @@
                 </div>
             </div>
             
-            <div class="col-md-4">
+            <div class="col-md-4 custom-card">
                 <div class="card bg-white border-0 shadow-sm rounded-4 h-100 p-4 hover-lift">
                     <i class="bi bi-headset display-2 text-theme mb-3"></i>
                     <h4 class="fw-bold text-dark">24/7 Support</h4>
@@ -117,9 +117,9 @@
     <script>
         $(document).ready(function() {
 
-            $('.container').hide().fadeIn(1000);
+            $('.container').hide().fadeIn(1500);
 
-            $('.card').hover(
+            $('.custom-card').hover(
                 function() { 
                     $(this).css('background-color', '#e8f5e9'); 
                     $(this).find('i').css('transform', 'scale(1.3)'); 

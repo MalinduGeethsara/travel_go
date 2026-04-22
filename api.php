@@ -10,7 +10,6 @@ if (!file_exists($dataFile)) {
 $jsonData = file_get_contents($dataFile);
 $records = json_decode($jsonData, true);
 
-// 1. READ (GET)
 if ($_SERVER['REQUEST_METHOD'] === 'GET') {
     if (isset($_GET['id'])) {
         $id = $_GET['id'];
@@ -23,7 +22,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
     }
 }
 
-// 2. CREATE (POST)
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $newRecord = [
         "id" => uniqid(),
@@ -40,7 +38,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     echo json_encode(["status" => "success", "message" => "Record added successfully!"]);
 }
 
-// 3. UPDATE (PUT)
 if ($_SERVER['REQUEST_METHOD'] === 'PUT') {
     // PHP doesn't read PUT form data natively, so we read the raw JSON input
     $putData = json_decode(file_get_contents("php://input"), true);
@@ -69,7 +66,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'PUT') {
     }
 }
 
-// 4. DELETE (DELETE)
 if ($_SERVER['REQUEST_METHOD'] === 'DELETE') {
     if (isset($_GET['id'])) {
         $id = $_GET['id'];

@@ -204,7 +204,6 @@
     <script>
         $(document).ready(function() {
             
-            // Existing jQuery Hover functionality
             $('.row').hide().fadeIn(1200);
 
             $('.card').hover(
@@ -218,7 +217,6 @@
                 }
             );
 
-            // FIX: Removed e.preventDefault() so maps open, added .card to selector
             $('.card .btn-outline-success').on('click', function(e) {
                 $(this).attr('target', '_blank');
                 
@@ -228,10 +226,8 @@
                 }
             });
 
-            // AJAX Task 5: Read all data records from JSON
             $('#loadDestinations').on('click', function() {
                 
-                // FIX: Remove existing badges before loading
                 $('.badge:contains("Trending Location")').remove();
 
                 $.ajax({
@@ -275,7 +271,6 @@
                 });
             });
 
-            // AJAX Task 5: Read one data record at a time based on ID
             $(document).on('click', '.view-record', function() {
                 let recordId = $(this).data('id');
                 let modal = new bootstrap.Modal(document.getElementById('singleRecordModal'));
@@ -303,7 +298,6 @@
                 });
             });
 
-            // --- AJAX: Load Data into Edit Modal ---
             $(document).on('click', '.edit-record', function() {
                 let recordId = $(this).data('id');
                 
@@ -329,7 +323,6 @@
                 });
             });
 
-            // --- AJAX: Submit the Updated Data (PUT) ---
             $('#updatePackageForm').on('submit', function(e) {
                 e.preventDefault();
                 
@@ -359,7 +352,6 @@
                 });
             });
 
-            // --- AJAX: Delete a Record (DELETE) ---
             $(document).on('click', '.delete-record', function() {
                 if(confirm("Are you sure you want to permanently delete this destination?")) {
                     let recordId = $(this).data('id');

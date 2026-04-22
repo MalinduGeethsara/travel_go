@@ -1,0 +1,29 @@
+[
+    {
+        "id": "1",
+        "title": "Amazon Forest Retreat",
+        "location": "Brazil",
+        "category": "Nature",
+        "duration": "7 Days",
+        "price": "$1200",
+        "rating": "4.8"
+    },
+    {
+        "id": "2",
+        "title": "Machu Picchu Hike",
+        "location": "Peru",
+        "category": "Adventure",
+        "duration": "5 Days",
+        "price": "$800",
+        "rating": "4.9"
+    },
+    {
+        "id": "3",
+        "title": "Kyoto Temple Tour",
+        "location": "Japan",
+        "category": "Culture",
+        "duration": "10 Days",
+        "price": "$2100",
+        "rating": "4.7"
+    }
+]

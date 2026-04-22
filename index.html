@@ -58,6 +58,40 @@
         </div>
     </div>
 
+    <div class="container py-5 bg-white rounded-4 shadow-sm border mb-5">
+        <h2 class="fw-bold mb-4 text-center text-dark"><i class="bi bi-plus-circle text-theme me-2"></i>Admin: Add New Destination Record</h2>
+        <form id="addPackageForm" class="row g-3">
+            <div class="col-md-6">
+                <label class="form-label fw-bold">Title</label>
+                <input type="text" id="title" class="form-control" placeholder="e.g. Swiss Alps Tour" required>
+            </div>
+            <div class="col-md-6">
+                <label class="form-label fw-bold">Location</label>
+                <input type="text" id="location" class="form-control" placeholder="e.g. Switzerland" required>
+            </div>
+            <div class="col-md-3">
+                <label class="form-label fw-bold">Category</label>
+                <input type="text" id="category" class="form-control" placeholder="e.g. Adventure" required>
+            </div>
+            <div class="col-md-3">
+                <label class="form-label fw-bold">Duration</label>
+                <input type="text" id="duration" class="form-control" placeholder="e.g. 4 Days" required>
+            </div>
+            <div class="col-md-3">
+                <label class="form-label fw-bold">Price</label>
+                <input type="text" id="price" class="form-control" placeholder="e.g. $900" required>
+            </div>
+            <div class="col-md-3">
+                <label class="form-label fw-bold">Rating</label>
+                <input type="text" id="rating" class="form-control" placeholder="e.g. 4.5" required>
+            </div>
+            <div class="col-12 text-center mt-4">
+                <button type="submit" class="btn btn-success btn-lg px-5">Save Record</button>
+            </div>
+        </form>
+        <div id="ajaxResponse" class="mt-3 text-center fw-bold"></div>
+    </div>
+
     <div class="container py-5">
         <h2 class="fw-bold mb-5 text-center text-dark">Why Travel With Us?</h2>
         <div class="row g-4 text-center">
@@ -138,6 +172,34 @@
                 if (container.find('.badge-custom').length === 0) {
                     container.append('<span class="badge bg-success mt-2 d-block badge-custom">Favorite Added!</span>');
                 }
+            });
+
+            // AJAX Task 5 Function: Add new data record to the server
+            $('#addPackageForm').on('submit', function(e) {
+                e.preventDefault();
+                let formData = {
+                    title: $('#title').val(),
+                    location: $('#location').val(),
+                    category: $('#category').val(),
+                    duration: $('#duration').val(),
+                    price: $('#price').val(),
+                    rating: $('#rating').val()
+                };
+
+                $.ajax({
+                    url: 'api.php',
+                    type: 'POST',
+                    data: formData,
+                    dataType: 'json',
+                    success: function(response) {
+                        $('#ajaxResponse').removeClass('text-danger').addClass('text-success').text(response.message);
+                        $('#addPackageForm')[0].reset();
+                        setTimeout(() => $('#ajaxResponse').text(''), 3000);
+                    },
+                    error: function() {
+                        $('#ajaxResponse').removeClass('text-success').addClass('text-danger').text("Failed to connect to server.");
+                    }
+                });
             });
         });
     </script>
